@@ -29,25 +29,33 @@
 
 ---
 
-## 🛠️ Project Structure
+<pre>
 context-app/
 ├── main.py                  # App entry point
 ├── config.py                # API keys, constants
+├── requirements.txt         # Dependencies
+│
 ├── ingestion/               # File loading & chunking
 │   ├── loader.py
 │   └── splitter.py
+│
 ├── embedding/               # Embedding and vector store
 │   ├── embedder.py
 │   └── vector_store.py
+│
 ├── retrieval/               # Chunk retriever
 │   └── retriever.py
+│
 ├── generation/              # Prompt + LLM logic
 │   └── rag_chain.py
+│
 ├── ui/                      # User interface
 │   └── interface.py
-├── utils/                   # Helper functions
-│   └── helpers.py
-└── requirements.txt         # Dependencies
+│
+└── utils/                   # Helper functions
+    └── helpers.py
+</pre>
+
 
 ---
 
