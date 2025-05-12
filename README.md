@@ -1,4 +1,4 @@
-# 🧠 Context – Your AI Local Study Assistant
+# 🧠 Context – Your AI Desktop Study Assistant
 
 **Context** is a local AI assistant for students. It lets you upload your study materials (PDFs, slides, notes) and ask natural language questions about them. Powered by LangChain, FAISS, and modern LLMs, Context gives grounded answers based on your files — with full privacy and local control.
 
