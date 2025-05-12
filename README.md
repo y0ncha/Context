@@ -7,11 +7,17 @@
 ## 🚀 Features
 
 - 📥 Upload PDFs, DOCX, TXT, or Markdown files
+  
 - ✂️ Automatically splits documents into semantic chunks
+  
 - 🔢 Embeds content with OpenAI or local models
+  
 - 📚 Stores vectors in FAISS for fast local retrieval
+  
 - 🔍 Ask questions in plain English, get answers based on your data
+  
 - 🧠 Powered by Retrieval-Augmented Generation (RAG)
+
 - 💻 Simple UI built with Streamlit or Gradio
 
 ---
