@@ -1,0 +1,25 @@
+context-app/
+│
+├── main.py                  # Streamlit/Gradio app entry point
+├── config.py                # Model keys, constants, paths
+├── requirements.txt         # Python dependencies
+│
+├── ingestion/
+│   ├── loader.py            # File loading using LangChain loaders
+│   └── splitter.py          # Chunking using text splitters
+│
+├── embedding/
+│   ├── embedder.py          # Embedding logic (OpenAI or local)
+│   └── vector_store.py      # FAISS vector store creation/loading
+│
+├── retrieval/
+│   └── retriever.py         # Query handling and top-k retrieval
+│
+├── generation/
+│   └── rag_chain.py         # Prompt formatting + LLM call
+│
+├── ui/
+│   └── interface.py         # UI layout and user interactions
+│
+└── utils/
+    └── helpers.py           # Utilities: file renaming, extension checks, etc.
