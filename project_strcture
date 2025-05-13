@@ -1,7 +1,9 @@
+Application Structure :
 context-app/
 │
 ├── main.py                  # Streamlit/Gradio app entry point
 ├── config.py                # Model keys, constants, paths
+├── .env                     # Environment variables
 ├── requirements.txt         # Python dependencies
 │
 ├── ingestion/
@@ -23,3 +25,9 @@ context-app/
 │
 └── utils/
     └── helpers.py           # Utilities: file renaming, extension checks, etc.
+
+
+
+File processing pipeline :
+Loading --> splitting --> embedding --> storing (vector store)
+
