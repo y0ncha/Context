@@ -18,7 +18,7 @@
   
 - 🧠 Powered by Retrieval-Augmented Generation (RAG)
 
-- 💻 Simple UI built with Streamlit or Gradio
+- 💻 Simple UI built with Streamlit
 
 ---
 
@@ -31,7 +31,7 @@
 | Embeddings       | `OpenAIEmbeddings`, `HuggingFaceEmbeddings` |
 | Vector Store     | `FAISS`                          |
 | Language Models  | `OpenAI`, `local LLMs via Ollama` |
-| UI               | `Streamlit` or `Gradio`          |
+| UI               | `Streamlit`                      |
 
 ---
 
