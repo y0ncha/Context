@@ -1,5 +1,6 @@
-# 📁 Context App – Project Structure
+# 📁 context-app – Project Structure
 
+```text
 context-app/
 │
 ├── main.py                  # Streamlit/Gradio app entry point
@@ -25,23 +26,15 @@ context-app/
 │   └── interface.py         # UI layout and user interactions
 │
 └── utils/
-└── helpers.py           # Utilities: file renaming, extension checks, etc.
----
+    └── helpers.py           # Utilities: file renaming, extension checks, etc.
+```
 
 ## 🔁 File Processing Pipeline
-# 1. Loading: Load files using LangChain loaders
-                    |
-                    v
-# 2. Splitting: Chunk files using text splitters
-                    |
-                    v
-# 3. Embedding: Embed chunks using OpenAI or local models
-                    |
-                    v
-# 4. Vector Store: Create/load FAISS vector store
-                    |
-                    v
-# 5. Retrieval: Handle queries and retrieve top-k chunks
+ 1. **Loading:** Load files using LangChain loaders
+ 2. **Splitting:** Chunk files using text splitters
+ 3. **Embedding:** Embed chunks using OpenAI or local models
+ 4. **Vector Store:** Create/load FAISS vector store
+ 5. **Retrieval:** Handle queries and retrieve top-k chunks
 
 
 
