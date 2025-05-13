@@ -1,63 +1,63 @@
-# 📁 context-app – Project Structure
+# 📁 context-app – project structure
 
-```text
+```TEXT
 context-app/
 │
-├── main.py                  # Streamlit/Gradio app entry point
-├── config.py                # Model keys, constants, paths
-├── .env                     # Environment variables
-├── requirements.txt         # Python dependencies
+├── main.py                  # streamlit/gradio app entry point
+├── config.py                # model keys, constants, paths
+├── .env                     # environment variables
+├── requirements.txt         # python dependencies
 │
 ├── ingestion/
-│   ├── loader.py            # File loading using LangChain loaders
-│   └── splitter.py          # Chunking using text splitters
+│   ├── loader.py            # file loading using langchain loaders
+│   └── splitter.py          # chunking using text splitters
 │
 ├── embedding/
-│   ├── embedder.py          # Embedding logic (OpenAI or local)
-│   └── vector_store.py      # FAISS vector store creation/loading
+│   ├── embedder.py          # embedding logic (openai or local)
+│   └── vector_store.py      # faiss vector store creation/loading
 │
 ├── retrieval/
-│   └── retriever.py         # Query handling and top-k retrieval
+│   └── retriever.py         # query handling and top-k retrieval
 │
 ├── generation/
-│   └── rag_chain.py         # Prompt formatting + LLM call
+│   └── rag_chain.py         # prompt formatting + llm call
 │
 ├── ui/
-│   └── interface.py         # UI layout and user interactions
+│   └── interface.py         # ui layout and user interactions
 │
 └── utils/
-    └── helpers.py           # Utilities: file renaming, extension checks, etc.
+    └── helpers.py           # utilities: file renaming, extension checks, etc.
 ```
 
-## 🔁 File Processing Pipeline
- 1. **Loading:** Load files using LangChain loaders
- 2. **Splitting:** Chunk files using text splitters
- 3. **Embedding:** Embed chunks using OpenAI or local models
- 4. **Vector Store:** Create/load FAISS vector store
- 5. **Retrieval:** Handle queries and retrieve top-k chunks
+## 🔁 file processing pipeline
+ 1. **loading:** load files using langchain loaders
+ 2. **splitting:** chunk files using text splitters
+ 3. **embedding:** embed chunks using openai or local models
+ 4. **vector store:** create/load faiss vector store
+ 5. **retrieval:** handle queries and retrieve top-k chunks
 
 
 
 ---
 
-## 🌱 Git Branching Strategy: Feature Development
+## 🌱 git branching strategy: feature development
 
 ```bash
-# 1. Start from the development branch
+# 1. start from the development branch
 git checkout dev
 
-# 2. Create a new feature branch
+# 2. create a new feature branch
 git checkout -b feature/embedder
 
-# 3. Work locally and commit often
+# 3. work locally and commit often
 git add .
-git commit -m "Implemented Embedder class without persistence"
+git commit -m "implemented embedder class without persistence"
 
-# 4. Push your branch to the remote
+# 4. push your branch to the remote
 git push -u origin feature/embedder
 
-# 5. Open a Pull Request to `dev` on GitHub/GitLab
+# 5. open a pull request to `dev` on github/gitlab
 
-# 6. Once approved, merge into `dev`
+# 6. once approved, merge into `dev`
 
-# 7. Periodically merge `dev` into `main` (add tags if needed)
+# 7. periodically merge `dev` into `main` (add tags if needed)
