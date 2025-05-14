@@ -94,12 +94,16 @@ context-app/
 ```bash
 git clone https://github.com/your-username/context-app.git
 cd context-app
-
+```
 ### 2. Install dependencies
+```bash
 pip install -r requirements.txt
-
+```
 ### 3. Add your OpenAI key (or use a local model)
+```bash
 in config.py OPENAI_API_KEY = "your-key-here"
-
-###4. Run the app
+```
+### 4. Run the app
+```bash
 streamlit run main.py
+```
