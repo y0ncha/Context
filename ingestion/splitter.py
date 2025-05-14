@@ -2,6 +2,8 @@ from langchain.text_splitter import RecursiveCharacterTextSplitter
 from langchain.schema import Document
 from config import CHUNK_SIZE, CHUNK_OVERLAP
 from typing import List
+from pathlib import Path
+import re
 
 class FileSplitter:
     """
@@ -34,4 +36,56 @@ class FileSplitter:
         Returns:
             A flat list of Document chunks (also LangChain Document objects).
         """
-        return self.text_splitter.split_documents(docs)
+        if not docs:
+            raise ValueError("No documents were provided to split.")
+
+        try:
+            chunks = self.text_splitter.split_documents(docs)
+        except Exception as e:
+            raise ValueError(f"Error splitting documents: {e}")
+
+        # Add id, token count and weight (priority) in the to each chunk metadata
+        for i, chunk in enumerate(chunks):
+            try:
+                chunk.metadata["chunk_id"] = self.id_chunk(chunk, i)
+                chunk.metadata["token_count"] = len(chunk.page_content.split())
+                chunk.metadata["weight"] = 1.0  # default weight value (can be adjusted later)
+            except Exception as e:
+                raise ValueError(f"Error adding metadata to chunk No.{i}: {e}")
+
+        if not chunks:
+            raise ValueError("No chunks were generated after splitting.")
+        return chunks
+
+    def id_chunk(self, doc: Document, idx: int) -> str:
+        """
+        Generate a clean identifier for a document chunk by removing file extension
+        and replacing whitespace with underscores.
+
+        Args:
+            doc: A LangChain Document object.
+            idx: The index of the chunk in the list of chunks.
+
+        Returns:
+            A sanitized string identifier.
+        """
+        try:
+            # Extract the source filename from metadata
+            source = doc.metadata.get("source", "unknown")
+
+            # Get the filename without the extension
+            file_name = Path(source).stem  # Using stem to get the name without extension
+
+            # First, replace whitespace with underscores
+            file_name = file_name.replace(" ", "_")  # Replace spaces with underscores
+
+            # Replace whitespace with underscores
+            clean_id = re.sub(r'[^\w\-]', '_', file_name)
+
+            # Append the index to the clean ID
+            clean_id += f"_{idx:03}"
+
+        except Exception as e:
+            raise ValueError(f"Error generating chunk ID: {e}")
+
+        return clean_id

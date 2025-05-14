@@ -85,9 +85,6 @@ class FileLoader:
             except Exception as e:
                 failed.append((file.name, f"Unexpected error: {str(e)}"))
 
-        if not docs and failed:
-            raise LoadingError(f"Failed to load any documents. Errors: {failed}")
-
         return docs, failed
 
     def validate_file(self, file: Path) -> Optional[str]:

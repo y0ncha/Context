@@ -17,14 +17,26 @@ class FileEmbedder:
         else:
             raise ValueError(f"Unsupported embedding model: {model_name}")
 
-    def embed(self, docs: List[Document]) -> FAISS:
+    def embed(self, chunks: List[Document]) -> FAISS:
         """
         Converts a list of Documents into vector embeddings using the selected backend.
 
         Args:
-            docs: A list of LangChain Document objects to embed.
+            chunks: A list of LangChain Document objects to embed.
 
         Returns:
             A FAISS vectorstore object containing all embedded documents (in-memory).
         """
-        return FAISS.from_documents(docs, self.embedding_model)
+        
+        if not chunks:
+            raise ValueError("No documents were provided to embed.")
+
+        payloads = [chunk.page_content for chunk in chunks]
+        embeddings = self.embedding_model.embed_documents(payloads)
+
+        if not embeddings:
+            raise ValueError("Failed to generate embeddings for the provided documents.")
+        if len(embeddings) != len(chunks):
+            raise ValueError("Mismatch between number of documents and embeddings generated.")
+
+        return embeddings
