@@ -35,6 +35,29 @@
 
 ---
 
+## 🔁 file processing pipeline
+
+```
+1. Loading
+   ↓ load files using LangChain loaders
+
+2. Splitting
+   ↓ chunk files using LangChain splitters
+
+3. Embedding
+   ↓ embed chunks using OpenAI embedder
+
+4. Vector Store
+   ↓ create/load FAISS vector store
+
+5. Retrieval
+   ↓ handle queries and retrieve top-k chunks
+```
+
+---
+
+## 📁 Project Structure
+
 <pre>
 context-app/
 ├── main.py                  # App entry point
